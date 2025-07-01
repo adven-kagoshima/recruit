@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講師募集 - IT Adventure プログラミング教室 鹿児島</title>
+    <meta name="description" content="IT Adventure（アドベン）は鹿児島のプログラミング教室です。講師を募集しています。子どもたちと一緒に成長できる環境で働きませんか？">
+    <meta name="keywords" content="IT Adventure, アドベン, プログラミング教室, 鹿児島, 講師募集, 求人">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-77B0TYTS31"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-77B0TYTS31');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ Pro W3", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+        }
+
+
+        /* ファーストビュー */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 65, 50, 0.7), rgba(140, 211, 12, 0.8)), 
+                        url('./images/header-bg.png') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .logo-hero {
+            width: 300px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.3));
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff3da1, #ffa100);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 61, 161, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 61, 161, 0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.5);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        .scroll-arrow {
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* タブセクション */
+        .interview-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #004132;
+            margin-bottom: 3rem;
+        }
+
+        .tab-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: #20b530;
+            background: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #20b530;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 3rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .instructor-info {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .instructor-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #8cd30c, #20b530);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .instructor-details h3 {
+            font-size: 2rem;
+            color: #004132;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-meta {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-meta p {
+            margin-bottom: 0.5rem;
+        }
+
+        .interview-content h4 {
+            color: #20b530;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #20b530;
+        }
+
+        .interview-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* フローティングボタン */
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff3da1, #ffa100);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(255, 61, 161, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .floating-button.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 61, 161, 0.4);
+        }
+
+        .floating-button.show:hover {
+            transform: translateY(-3px);
+        }
+
+        /* 店舗情報セクション */
+        .store-info-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .store-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .store-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .store-name {
+            font-size: 1.8rem;
+            color: #004132;
+            margin-bottom: 2rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #20b530;
+        }
+
+        .store-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .store-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .store-item strong {
+            color: #20b530;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .store-item p {
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* フッター */
+        footer {
+            background: #004132;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .logo-hero {
+                width: 200px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-buttons {
+                overflow-x: auto;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE 10+ */
+                gap: 10px;
+                padding: 0 10px;
+                cursor: grab;
+            }
+
+            .tab-buttons:active {
+                cursor: grabbing;
+            }
+
+            .tab-buttons::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
+            }
+
+            .tab-button {
+                flex-shrink: 0;
+                min-width: 140px;
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+
+            .instructor-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .instructor-image {
+                width: 150px;
+                height: 150px;
+                font-size: 2rem;
+            }
+
+            .tab-content {
+                padding: 2rem 1rem;
+            }
+
+            .floating-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.8rem 1.2rem;
+                font-size: 1rem;
+            }
+
+            .store-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .store-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .logo-hero {
+                width: 180px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .interview-section {
+                padding: 0 1rem;
+            }
+
+            .tab-button {
+                min-width: 120px;
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- ファーストビュー -->
+    <section class="hero">
+        <a href="https://it-adventure.net/" target="_self"><img src="./images/logo.svg" alt="IT Adventure ロゴ" class="logo-hero"></a>
+        <div class="hero-content">
+            <h1>子どもたちと一緒に成長しませんか？</h1>
+            <p>IT Adventure では講師を募集しています<br>
+            プログラミングを通じて、子どもたちの未来を創る仕事</p>
+            <div class="hero-cta">
+                <a href="https://jp.indeed.com/viewjob?jk=845f4591e4bebd52" target="_blank" class="cta-button">今すぐ応募する</a>
+                <a href="#interviews" class="cta-button cta-secondary">体験談を読む</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+            <div>講師の声を見る</div>
+        </div>
+    </section>
+
+    <!-- インタビューセクション -->
+    <section class="interview-section" id="interviews">
+        <h2 class="section-title">卒業した講師の声</h2>
+        
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="showTab('hamada')">はまださん</button>
+                <button class="tab-button" onclick="showTab('kakimoto')">かきもとさん</button>
+                <button class="tab-button" onclick="showTab('arakawa')">あらかわ先生</button>
+                <button class="tab-button" onclick="showTab('kiwaki')">きわき先生</button>
+            </div>
+
+            <!-- はまださん -->
+            <div class="tab-content active" id="hamada">
+                <div class="instructor-info">
+                    <div class="instructor-image">H</div>
+                    <div class="instructor-details">
+                        <h3>「子どもと一緒に、自分も育つ。チームで支える教室」</h3>
+                        <div class="instructor-meta">
+                            <p><strong>お名前：</strong>はまださん</p>
+                            <p><strong>在籍期間：</strong>2019年10月-2024年</p>
+                            <p><strong>出身校：</strong>鹿児島大学大学院 理工学研究科 情報・生体工学プログラム</p>
+                            <p><strong>現在のお仕事：</strong>株式会社ZOZO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interview-content">
+                    <h4>質問① なぜITアドベンチャーで講師をしようと思ったのですか？</h4>
+                    <p>大学で情報系を専攻していたこともあり、プログラミングを教える仕事に興味がありました。ただ、単にスキルを活かすだけではなく、「人に教える」という経験にもチャレンジしたい気持ちが強くて。そんなときにITアドベンチャーの講師募集を知り、子どもたちと一緒に学びながら成長できる場だと感じて応募しました。アルバイトというより、実践的な学びの場という印象がありましたね。</p>
+                    
+                    <h4>質問② どんな時に「やっててよかった」と感じましたか？</h4>
+                    <p>やっぱり一番は、生徒が「わかった！」と嬉しそうに言ってくれたときですね。最初はうまくいかなくて悩んでいた子が、少しずつ自分で考えて答えを出せるようになる姿を見ると、本当に嬉しくなります。「先生のおかげでできた！」と言われたときは、こちらも元気をもらえますし、自分の存在が誰かの役に立っているんだと実感できました。</p>
+                    
+                    <h4>質問③ この教室ならではだと思う特徴や雰囲気は？</h4>
+                    <p>講師も生徒も、みんながリラックスしながらも真剣に取り組んでいる雰囲気があります。教える側も「こう教えてみたい」と自由に工夫できる余地があって、型にはまらないところが魅力です。また、教室長や先輩講師がいつも丁寧にフォローしてくれて、初めての授業でも安心して臨めました。生徒一人ひとりにしっかり向き合う姿勢も、この教室の大きな特徴だと思います。</p>
+                    
+                    <h4>質問④ 講師の経験は、就職活動や社会人生活でどう活きましたか？</h4>
+                    <p>今はIT企業でエンジニアをしていますが、技術面だけでなく「伝える力」や「相手の立場で考える力」が求められる場面は多いです。講師時代に子どもにわかりやすく伝えるために言葉を選んだり、どう理解しているかを観察したりした経験は、今でもプレゼンやチーム内でのやりとりに役立っています。時間内に授業を組み立てる経験から、段取り力も自然と身についたと思います。</p>
+                    
+                    <h4>質問⑤ これから講師になる人に、ひとことメッセージをください。</h4>
+                    <p>最初はうまくいかないこともあると思いますが、子どもたちはちゃんと講師の思いを受け取ってくれます。自分自身も教えることで学ぶことがたくさんあるので、ぜひ怖がらずにチャレンジしてほしいです。ITアドベンチャーは成長できる場でもあるので、ここでの経験がきっと将来に活きてくると思います！</p>
+                </div>
+            </div>
+
+            <!-- かきもとさん -->
+            <div class="tab-content" id="kakimoto">
+                <div class="instructor-info">
+                    <div class="instructor-image">K</div>
+                    <div class="instructor-details">
+                        <h3>「信じて、任せて、見守る。子どもと共に育つ時間」</h3>
+                        <div class="instructor-meta">
+                            <p><strong>お名前：</strong>かきもとさん</p>
+                            <p><strong>在籍期間：</strong>2023年8月-2025年3月</p>
+                            <p><strong>出身校：</strong>４年制専門学校</p>
+                            <p><strong>現在のお仕事：</strong>株式会社JR東日本情報システム</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interview-content">
+                    <h4>質問① なぜITアドベンチャーで講師をしようと思ったのですか？</h4>
+                    <p>もともと子どもと関わることが好きで、大学でも教育系のことを学んでいたので、何か活かせるバイトを探していました。ITアドベンチャーは「教える側も一緒に学び成長できる場」という印象があり、ただのアルバイトではなく、自分の将来にもつながると感じて応募しました。最初はプログラミングに自信がなかったんですが、丁寧な研修があったので安心してスタートできました。</p>
+                    
+                    <h4>質問② どんな時に「やっててよかった」と感じましたか？</h4>
+                    <p>子どもたちの「わかった！」「できた！」の瞬間に立ち会えたときが一番嬉しいです。また、最初は恥ずかしがり屋だった子が、少しずつ自信を持って発表できるようになったり、卒業のときに「先生と一緒に勉強できて楽しかった」と言ってくれたり…そういう小さな成長に寄り添えることが、この仕事のやりがいだと感じています。</p>
+                    
+                    <h4>質問③ この教室ならではだと思う特徴や雰囲気は？</h4>
+                    <p>子ども一人ひとりに寄り添う丁寧な個別指導が特長だと思います。講師同士のチームワークも良くて、「どうやったらもっと伝わるか？」を一緒に考えられる雰囲気があります。また、生徒の「できた！」を引き出すための工夫をたくさん試させてもらえる自由さもあります。安心してチャレンジできる環境だと思います。</p>
+                    
+                    <h4>質問④ 講師の経験は、就職活動や社会人生活でどう活きましたか？</h4>
+                    <p>私は現在、教育系の仕事に就いていますが、講師としての経験がそのまま活きています。特に、子どもとの接し方や説明の仕方、そして相手に寄り添う姿勢は、どんな仕事でも大切な力だと思います。面接のときにも、ITアドベンチャーでの具体的なエピソードを話したらとても興味を持ってもらえました。</p>
+                    
+                    <h4>質問⑤ これから講師になる人に、ひとことメッセージをください。</h4>
+                    <p>子どもに教えるってすごく責任があるし、最初は緊張すると思います。でも、子どもと一緒に笑ったり悩んだりしながら過ごす時間は、他にはない貴重な経験です。少しでも興味があるなら、思いきって飛び込んでみてください。必ず得るものがあります！</p>
+                </div>
+            </div>
+
+            <!-- 荒川先生 -->
+            <div class="tab-content" id="arakawa">
+                <div class="instructor-info">
+                    <div class="instructor-image">A</div>
+                    <div class="instructor-details">
+                        <h3>「"楽しい"を引き出す仕事。子どもと笑って過ごした日々」</h3>
+                        <div class="instructor-meta">
+                            <p><strong>お名前：</strong>あらかわ先生</p>
+                            <p><strong>在籍期間：</strong>2022年2月~2024年2月</p>
+                            <p><strong>出身校：</strong>KCS鹿児島情報専門学校 大学併修科</p>
+                            <p><strong>現在のお仕事：</strong>DXCテクノロジー･ジャパン株式会社</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interview-content">
+                    <h4>質問① なぜITアドベンチャーで講師をしようと思ったのですか？</h4>
+                    <p>大学で情報系を学んでいたこともあり、子どもたちにプログラミングを教える仕事に興味がありました。特にITアドベンチャーは「ただ教える」だけでなく、「子どもたちの成長に寄り添う」ことを大切にしていると聞いて、共感したのがきっかけです。教えることにも、人と関わることにもチャレンジしてみたいと思って応募しました。</p>
+                    
+                    <h4>質問② どんな時に「やっててよかった」と感じましたか？</h4>
+                    <p>生徒が自分の力で課題を乗り越えた瞬間や、「前よりも自信がついた」と言ってくれた時に、本当にやっててよかったなと思います。特に印象的だったのは、最初は質問すらできなかった子が、数ヶ月後には堂々と自分のアイデアを発表していた姿です。小さな成長の積み重ねを見られるのはこの仕事の醍醐味です。</p>
+                    
+                    <h4>質問③ この教室ならではだと思う特徴や雰囲気は？</h4>
+                    <p>講師と生徒の距離が近く、自然体でいられる雰囲気があります。子どもたちは自由に意見を言えるし、講師も一人ひとりに合わせて丁寧にサポートできる。その中で、子どもたちが「自分で考える力」を育てていく様子がよくわかります。講師側も学びが多く、成長できる環境です。</p>
+                    
+                    <h4>質問④ 講師の経験は、就職活動や社会人生活でどう活きましたか？</h4>
+                    <p>私は今、エンジニアとして働いていますが、ITアドベンチャーでの経験はチームワークや説明力、そして「相手の立場になって考える力」を養うのにとても役立ちました。また、子どもたちの前で話す経験を積んでいたおかげで、面接やプレゼンの場面でも落ち着いて話せるようになりました。</p>
+                    
+                    <h4>質問⑤ これから講師になる人に、ひとことメッセージをください。</h4>
+                    <p>最初は戸惑うこともあるかもしれませんが、子どもたちとの関わりは本当に楽しく、毎回が新しい発見の連続です。教える中で、自分自身もたくさん成長できます。「伝えること」「向き合うこと」の面白さを一緒に体験してみてください！</p>
+                </div>
+            </div>
+
+            <!-- きわき先生 -->
+            <div class="tab-content" id="kiwaki">
+                <div class="instructor-info">
+                    <div class="instructor-image">K</div>
+                    <div class="instructor-details">
+                        <h3>「"できた！"の笑顔に支えられて。対話で築く信頼」</h3>
+                        <div class="instructor-meta">
+                            <p><strong>お名前：</strong>きわき先生</p>
+                            <p><strong>在籍期間：</strong>2021年10月-2024年3月</p>
+                            <p><strong>出身校：</strong>3年制専門学校</p>
+                            <p><strong>現在のお仕事：</strong>IT(ソフトウェア開発)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interview-content">
+                    <h4>質問① なぜITアドベンチャーで講師をしようと思ったのですか？</h4>
+                    <p>専門学校の授業でプログラミングに出会い、自分でも勉強する中で「これを子どもたちにも楽しく伝えられたらいいな」と思ったのがきっかけです。もともと教育にも興味があり、ITアドベンチャーの「個別に寄り添う指導」や「成長段階に合わせたカリキュラム」に共感して、応募を決めました。</p>
+                    
+                    <h4>質問② どんな時に「やっててよかった」と感じましたか？</h4>
+                    <p>生徒が自分の手で作品を完成させて、「できた！」と満面の笑顔を見せてくれる時は何より嬉しいです。中でも、ある生徒が自信なさげに取り組んでいた課題を、何度も試行錯誤してついに完成させた時は、自分のことのように嬉しかったです。その瞬間に立ち会えるのが、この仕事の魅力だと思います。</p>
+                    
+                    <h4>質問③ この教室ならではだと思う特徴や雰囲気は？</h4>
+                    <p>教室全体がとてもあたたかく、子どもも講師も「安心してチャレンジできる」空気があります。わからないことがあっても否定されることはなく、自分のペースで進められる。だからこそ、子どもたちの個性がどんどん出てくるし、「学ぶって楽しい」と思える場になっていると思います。</p>
+                    
+                    <h4>質問④ 講師の経験は、就職活動や社会人生活でどう活きましたか？</h4>
+                    <p>私は現在、システム開発の現場で働いていますが、ITアドベンチャーで培った「相手に合わせた伝え方」や「状況に応じた対応力」はすごく活きています。また、後輩指導をする場面でも、「どうすれば理解してもらえるか」を考える癖がついているのは、講師経験のおかげだと感じます。</p>
+                    
+                    <h4>質問⑤ これから講師になる人に、ひとことメッセージをください。</h4>
+                    <p>「教える」といっても、最初から完璧を目指す必要はありません。むしろ、一緒に考えたり、つまずいたりしながら成長していけるのが、この教室の良さです。子どもと一緒に楽しむ気持ちを大事にして、ぜひチャレンジしてみてください！</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 店舗情報セクション -->
+    <section class="store-info-section">
+        <div class="container">
+            <h2 class="section-title">教室情報</h2>
+            <div class="store-grid">
+                <div class="store-card">
+                    <h3 class="store-name">鹿児島中央校</h3>
+                    <div class="store-details">
+                        <div class="store-item">
+                            <strong>住所</strong>
+                            <p>〒892-0846<br>鹿児島県鹿児島市加治屋町1-9<br>第2柿本寺ビル104</p>
+                        </div>
+                        <div class="store-item">
+                            <strong>電話番号</strong>
+                            <p>099-294-9524</p>
+                        </div>
+                        <div class="store-item">
+                            <strong>営業時間</strong>
+                            <p>12:00-21:00</p>
+                        </div>
+                        <div class="store-item">
+                            <strong>アクセス</strong>
+                            <p>市電「加治屋町」駅近く</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="store-card">
+                    <h3 class="store-name">谷山校</h3>
+                    <div class="store-details">
+                        <div class="store-item">
+                            <strong>住所</strong>
+                            <p>〒891-0113<br>鹿児島県鹿児島市東谷山2丁目10-7　2F</p>
+                        </div>
+                        <div class="store-item">
+                            <strong>電話番号</strong>
+                            <p>099-267-5055</p>
+                        </div>
+                        <div class="store-item">
+                            <strong>営業時間</strong>
+                            <p>12:00-21:00</p>
+                        </div>
+                        <div class="store-item">
+                            <strong>アクセス</strong>
+                            <p>市電「谷山」駅近く</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フローティングボタン -->
+    <a href="https://jp.indeed.com/viewjob?jk=845f4591e4bebd52" target="_blank" class="floating-button">今すぐ応募する</a>
+
+    <!-- フッター -->
+    <footer>
+        <p>プログラミング教室 『 IT Adventure 』</p>
+        <p>&copy; 2025 IT Adventure. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // すべてのタブコンテンツを非表示
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // すべてのタブボタンを非アクティブ
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // 選択されたタブを表示
+            document.getElementById(tabName).classList.add('active');
+            
+            // 対応するボタンをアクティブに
+            event.target.classList.add('active');
+        }
+
+        // フローティングボタンの表示制御
+        window.addEventListener('scroll', function() {
+            const heroSection = document.querySelector('.hero');
+            const floatingButton = document.querySelector('.floating-button');
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+            
+            if (window.scrollY > heroBottom) {
+                floatingButton.classList.add('show');
+            } else {
+                floatingButton.classList.remove('show');
+            }
+        });
+
+        // タブボタンのマウスドラッグスクロール
+        const tabButtons = document.querySelector('.tab-buttons');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        tabButtons.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - tabButtons.offsetLeft;
+            scrollLeft = tabButtons.scrollLeft;
+        });
+
+        tabButtons.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        tabButtons.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        tabButtons.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - tabButtons.offsetLeft;
+            const walk = (x - startX) * 2;
+            tabButtons.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
